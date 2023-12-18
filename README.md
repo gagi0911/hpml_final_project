@@ -51,33 +51,66 @@ The primary objective of this project is to improve the efficiency and scalabili
 - **Activities:** Researching advanced techniques, assessing scalability, and drafting future work plans.
 - **Status:** [Completed]
 
-# Usage Example
-## usage help
-```
-usage: vit.py [-h] [--gpu GPU] [--epochs EPOCHS] [--experts EXPERTS] [--batch BATCH] [--noswitch] [--cifar100] [--out OUT] [--dmodel DMODEL]
+## Repository and Code Structure
 
-PyTorch Distributed deep learning
+### Repository Organization
+
+#### Root Directory
+- **Python Files:** All main Python files (.py) for the project are located here.
+- **Run Scripts:** Scripts for running the project, facilitating easy execution.
+- **Project Documentation:** Preliminary documentation available as PDF files.
+
+#### `results` Directory
+- Contains all output files generated from running the project scripts, including data files, logs, and output reports.
+
+### Code Structure
+
+#### Imports and Dependencies
+- Standard libraries: `copy`, `time`, `random`.
+- PyTorch modules: `torch`, `nn`, `torchvision`, `torch.distributed`, `torch.multiprocessing`.
+- Helper libraries: `labml_helpers`, `labml_nn`, `argparse`, `typing`.
+
+#### Model Components
+- `Mlp`: Defines MLP used in Vision Transformer.
+- `ParallelMLP`: Implements parallel MLPs with random routing and averaging.
+- `PatchEmbeddings`: Generates patch embeddings from images.
+- `LearnedPositionalEmbeddings`: Adds learned positional embeddings.
+- `ClassificationHead`: MLP classification head for image classification.
+- `Block`: Combines self-attention and feed-forward layers in a transformer block.
+- `TransformerLayer`: Implements an encoder or decoder layer of a transformer.
+- `VisionTransformer`: Main class combining all components for the Vision Transformer model.
+
+#### Main Function (`main`)
+- Initializes distributed processing.
+- Sets up data loaders for CIFAR datasets.
+- Constructs and configures the Vision Transformer model.
+- Training and evaluation loops with functionality for model saving.
+
+#### Utility Functions
+- `get_total_params`: Calculates total parameters in the model.
+
+#### Execution
+- Parses command-line arguments.
+- Starts distributed training using `mp.spawn`.
+
+**Note:** The code is organized for modular design and flexibility, supporting distributed training and experimenting with innovative approaches like random routing in MLPs.
+
+
+
+## Usage Example
+### usage help
+```
+usage: vit.py [--gpu GPU] [--epochs EPOCHS] [--batch BATCH] [--cifar10] [--out OUT] [--dmodel DMODEL]
 
 options:
-  -h, --help         show this help message and exit
   --gpu GPU          no. of gpus
   --epochs EPOCHS    no. of epochs
-  --experts EXPERTS  no. of experts
   --batch BATCH      batch size
-  --noswitch         use original vit
-  --cifar100         use cifar 100 dataset
+  --cifar10          use cifar 100 dataset
   --out OUT          model output path
   --dmodel DMODEL    d_model embedding size
 ```
-
-## examples
-
-`python vit.py --batch 256 --experts 64 --epochs 500 --gpu 4 --dmodel 300 --out vit_model_rtx_4_dmodel_300_experts_64_batch_256_cifar10`<br>
-Running switch-vit with 64 experts and 300 d_model embdedding size on 4 GPUs with 256 effective batch size over multiple GPU.
-
-
-`python vit.py --batch 256 --experts 64 --epochs 500 --gpu 4 --dmodel 300 --noswitch --out vit_noswitch_model_rtx_4_dmodel_300_batch_256_cifar10`<br>
-Running original vit with 64 experts and 300 d_model embdedding size on 4 GPUs with 256 effective batch size over multiple GPU.
+you can see example in run.sh
 
 
 # Results
