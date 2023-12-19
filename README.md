@@ -61,7 +61,7 @@ The primary objective of this project is to improve the efficiency and scalabili
 - **Project Documentation:** Preliminary documentation available as PDF files.
 
 #### `results` Directory
-- Contains all output files generated from running the project scripts, including data files, logs, and output reports.
+- Contains all output files generated from running the project scripts, including data files.
 
 ### Code Structure
 
