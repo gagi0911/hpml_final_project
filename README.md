@@ -114,33 +114,29 @@ you can see example in run.sh
 
 
 # Results
-model trained on cifar 10 for 350 epochs<br>
+model trained on cifar 10 for 100 epochs<br>
 GPU: 4 RTX8000<br>
 Batch size: 256<br>
 Embedding Size: 300<br>
 Patch Size: 4
 
-t_epoch = Epoch to accuracy threshold 75%
-| model | experts | size | highest acc (epoch) | t_epoch | Training Time (60,000 images) | Inference Time (60,000 images) |
-|----|:----:|:----:|:-----:|:-----:|:-----:|:-----:|
-| vit | - | 12,798,490 | 81.36 (345) | 31  | 11.8 | 4.6 |
-| switch-vit | 32 | 238,732,426 | 79.04 (321) | 33 | 68.86 | 4.98 |
-| switch-vit | 64 | 464,669,962 | 78.8 (328) | 49 | 130.52 | 5.18 |
+
+| model | experts | size | acc (epoch) | Training Time (60,000 images) |
+|----|:----:|:----:|:-----:|:-----:|
+| vit | - | 12,798,490 | 71.06 | 52.70 |
+| vit-MoE | 4 | 12,812,938 | 71.1 | 71.80 |
+| vit-MoE&Random Routing | 4 | 12,798,490 | 72.18 | 131.24 |
 
 
 # Citation
 ```
-{
- author = {William Fedus, Barret Zoph, Noam Shazeer},
- title = {Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity},
- year = {2022},
- url = {https://arxiv.org/pdf/2101.03961.pdf},
-}
-
-@misc{labml,
- author = {Varuna Jayasiri, Nipun Wijerathne},
- title = {labml.ai: A library to organize machine learning experiments},
- year = {2020},
- url = {https://labml.ai/},
+@article{wang2022adamix,
+  title={Adamix: Mixture-of-adapter for parameter-efficient tuning of large language models},
+  author={Wang, Yaqing and Mukherjee, Subhabrata and Liu, Xiaodong and Gao, Jing and Awadallah, Ahmed Hassan and Gao, Jianfeng},
+  journal={arXiv preprint arXiv:2205.12410},
+  volume={1},
+  number={2},
+  pages={4},
+  year={2022}
 }
 ```
