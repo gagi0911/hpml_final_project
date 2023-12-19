@@ -123,9 +123,9 @@ Patch Size: 4
 
 | model | experts | size | acc (epoch) | Training Time |
 |----|:----:|:----:|:-----:|:-----:|
-| vit | - | 12,798,490 | 71.06 | 52.70 |
-| vit-MoE | 4 | 12,812,938 | 71.1 | 71.80 |
-| vit-MoE&Random Routing | 4 | 12,798,490 | 72.18 | 131.24 |
+| vit | - | 12,798,490 | 71.06 | 39.91 |
+| vit-MoE | 4 | 12,812,938 | 71.1 | 57.78 |
+| vit-MoE&Random Routing | 4 | 12,798,490 | 72.18 | 34.89 |
 
 
 # Citation
