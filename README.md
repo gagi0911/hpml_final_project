@@ -114,8 +114,8 @@ you can see example in run.sh
 
 
 # Results
-model trained on cifar 10 for 100 epochs<br>
-GPU: 4 RTX8000<br>
+model trained on cifar 10
+GPU: 2 RTX8000<br>
 Batch size: 256<br>
 Embedding Size: 300<br>
 Patch Size: 4
