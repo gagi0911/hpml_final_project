@@ -121,7 +121,7 @@ Embedding Size: 300<br>
 Patch Size: 4
 
 
-| model | experts | size | acc (epoch) | Training Time (60,000 images) |
+| model | experts | size | acc (epoch) | Training Time |
 |----|:----:|:----:|:-----:|:-----:|
 | vit | - | 12,798,490 | 71.06 | 52.70 |
 | vit-MoE | 4 | 12,812,938 | 71.1 | 71.80 |
